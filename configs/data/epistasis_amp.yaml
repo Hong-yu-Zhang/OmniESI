@@ -1,0 +1,5 @@
+SOLVER:
+  BATCH_SIZE: 8
+  MAX_EPOCH: 50
+  DATA: './datasets_embeddings/epistasis_amp'
+  SAVE: 'epistasis_amp'

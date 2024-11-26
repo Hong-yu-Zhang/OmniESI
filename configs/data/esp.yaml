@@ -1,0 +1,5 @@
+SOLVER:
+  BATCH_SIZE: 32
+  MAX_EPOCH: 50
+  DATA: './datasets_embeddings/esp'
+  SAVE: 'esp'
