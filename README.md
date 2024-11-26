@@ -3,6 +3,7 @@ The official code repository of "Multi-purpose enzyme-substrate interaction pred
 
 # News
 ⭐**Nov 27, 2024:** The model weights for **all datasets and splits** are released!
+
 ⭐**Nov 26, 2024:** The source code for MESI is released!
 
 # Overview
