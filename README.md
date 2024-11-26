@@ -250,6 +250,3 @@ python show_attention.py \
     --model [Baseline, BCFM, CCFM, MESI] \
     --show_surface \ # (Optional) We recommend not using this argument to prevent occlusion.
 ```
-=======
-MESI
->>>>>>> c5566670a8e708fd7b985352ac0d5e2bbb764132
