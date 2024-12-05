@@ -182,7 +182,7 @@ Below are the configuration options involved in the regression tasks:
 
 # MESI for binary classification tasks
 ## Execution templates
-For binary classification tasks, such as enzyme-substrate pair prediction, epistasis prediction, and mutation classification, the basic execution templates for training and testing are as follows:
+For binary classification tasks, such as enzyme-substrate pair prediction, epistasis prediction, and single mutation classification, the basic execution templates for training and testing are as follows:
 ```python
 #test
 python test.py \
@@ -216,14 +216,14 @@ Below are the configuration options involved in the binary classification tasks:
 [DATA]: epistasis_amp
 [DATA]: epistasis_ctx
 
-# For mutation classification
+# For single mutation classification
 [DATA]: mut_classify
 ```
 
 # Visualization results reproduction
 
 ## PCA analysis
-We have stored the embeddings used for PCA visualization of the kcat/Km and mutation classification tasks in `/.../MESI/visualization/PCA_analysis`. You can easily reproduce the results from our paper by running the following command:
+We have stored the embeddings used for PCA visualization of the kcat/Km and single mutation classification tasks in `/.../MESI/visualization/PCA_analysis`. You can easily reproduce the results from our paper by running the following command:
 ```python
 cd /.../MESI/visualization/PCA_analysis
 python plot_kcat_km.py
@@ -232,23 +232,23 @@ python plot_mut.py
 The PCA visualization images will be stored in the `fig_pca` folder.
 
 ## Interpretability analysis
-We will visualize MESI's sensitivity to key residues, such as active sites and pockets, from both a statistical perspective and through case-by-case analysis.
+We demonstrate MESI's sensitivity to the residues of enzyme and functional groups of substrate that are critical for catalysis, through statistical analysis and specific case study.
 
 ### Statistical analysis
 
-Run `att_statistic.py` to obtain the average attention scores for pocket and non-pocket residues in each enzyme-substrate complex:
+Run `att_statistic.py` to obtain the mean attention score of the residues in active site and other region of the enzyme in each enzyme-substrate complex:
 ```shell
 cd /.../MESI/visualization/Interpretability_analysis
 python att_statistic.py
 ```
 
-Run `att_ratio.py` to obtain the distribution of the ratio between the average attention scores of pocket and non-pocket residues, providing a clearer visualization of MESI's increased focus on pocket residues:
+Run `att_ratio.py` to obtain the distribution of the ratio between the mean attention scores of active site region and other region residues, providing a clearer visualization of MESI's increased focus on the residues in active site region:
 ```shell
 python att_ratio.py
 ```
 
-### Case-by-case analysis
-You can also use `PyMOL` to visualize the residue attention distribution in a sample enzyme-substrate complex from all complexes:
+### Specific case study
+You can also use `PyMOL` to visualize the residue attention score of enzyme in a specific case:
 ```python
 python show_enzyme_att.py \
     --split [1-5] \
@@ -256,7 +256,7 @@ python show_enzyme_att.py \
     --model [Baseline, BCFM, CCFM, MESI] \
     --show_surface \ # (Optional) We recommend not using this argument to prevent occlusion.
 ```
-The script utilized to visualize the atom level attention score is also available:
+The script utilized to visualize the atom attention score of substrate is also available:
 ```python
 python show_substrate_att.py \
     --split [1-5] \
