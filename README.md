@@ -2,6 +2,8 @@
 The official code repository of "Multi-purpose enzyme-substrate interaction prediction with progressive conditional deep learning"
 
 # News
+⭐**Nov 27, 2024:** The model weights for **all datasets and splits** are released!
+
 ⭐**Nov 26, 2024:** The source code for MESI is released!
 
 # Overview
@@ -75,6 +77,10 @@ pip install -r requirements.txt
 ```
 
 # Data preparation
+
+## Download data
+Download ESI datasets and model weights at: https://zenodo.org/records/14224548
+
 
 ## Prepare ESI datasets
 Make sure all the ESI datasets are stored under:
