@@ -250,9 +250,15 @@ python att_ratio.py
 ### Case-by-case analysis
 You can also use `PyMOL` to visualize the residue attention distribution in a sample enzyme-substrate complex from all complexes:
 ```python
-python show_attention.py \
+python show_enzyme_att.py \
     --split [1-5] \
     --index [index_num] \
     --model [Baseline, BCFM, CCFM, MESI] \
     --show_surface \ # (Optional) We recommend not using this argument to prevent occlusion.
+```
+The script utilized to visualize the atom level attention score is also available:
+```python
+python show_substrate_att.py \
+    --split [1-5] \
+    --index [index_num] \
 ```
