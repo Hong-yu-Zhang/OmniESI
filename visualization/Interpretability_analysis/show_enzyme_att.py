@@ -12,7 +12,7 @@ import time
 parser = argparse.ArgumentParser(description='Show protein-ligand complex with attention scores')
 parser.add_argument('--split', required=True, help="Which split to visualize", type=str)
 parser.add_argument('--index', required=True, help="Which protein?", type=str)
-parser.add_argument('--model', required=True, choices=['Baseline', 'BCFM', 'CCFM', 'MPESI'], help="Which model to visualize")
+parser.add_argument('--model', required=True, choices=['Baseline', 'BCFM', 'CCFM', 'MESI'], help="Which model to visualize")
 parser.add_argument('--show_surface', action='store_true', help="Whether to show surface mode for the protein")
 args = parser.parse_args()
 

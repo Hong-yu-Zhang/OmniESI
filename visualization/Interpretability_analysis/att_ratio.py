@@ -5,7 +5,7 @@ import ast
 import matplotlib.pyplot as plt
 import glob
 
-model_type = 'models/MPESI'
+model_type = 'models/MESI'
 csv_files = glob.glob(f'{model_type}/fold_*.csv')
 data = []
 for file in csv_files:
