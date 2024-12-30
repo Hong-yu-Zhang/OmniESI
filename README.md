@@ -266,3 +266,11 @@ python show_substrate_att.py \
     --split [1-5] \
     --index [index_num] \
 ```
+# Citation
+```
+@article{nie2024multi,
+  title={Multi-purpose enzyme-substrate interaction prediction with progressive conditional deep learning},
+  author={Nie, Zhiwei and Zhang, Hongyu and Jiang, Hao and Liu, Yutian and Huang, Xiansong and Xu, Fan and Tian, Yonghong and Chen, Jie and Zhang, Wen-Bin},
+  year={2024}
+}
+```
