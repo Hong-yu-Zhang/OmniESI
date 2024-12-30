@@ -2,6 +2,8 @@
 The official code repository of "Multi-purpose enzyme-substrate interaction prediction with progressive conditional deep learning"
 
 # News
+⭐**Nov 27, 2024:** Solve the environment conflict issues.
+
 ⭐**Nov 27, 2024:** The model weights for **all datasets and splits** are released!
 
 ⭐**Nov 26, 2024:** The source code for MESI is released!
