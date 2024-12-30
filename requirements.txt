@@ -8,3 +8,5 @@ scipy
 timm
 tqdm
 yacs
+rdkit
+
