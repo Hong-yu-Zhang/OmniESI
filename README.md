@@ -2,7 +2,7 @@
 The official code repository of "Multi-purpose enzyme-substrate interaction prediction with progressive conditional deep learning"
 
 # News
-⭐**Jun 25, 2025:** More downstream applications coming in one weeks. Stay tuned!😊
+⭐**Jun 25, 2025:** More downstream applications coming in one week. Stay tuned!😊
 
 ⭐**Nov 26, 2024:** The source code for OmniESI is released!
 
