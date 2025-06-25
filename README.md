@@ -1,20 +1,20 @@
-# MESI
+# OmniESI
 The official code repository of "Multi-purpose enzyme-substrate interaction prediction with progressive conditional deep learning"
 
 # News
 ⭐**Jun 25, 2025:** More downstream applications coming in one weeks. Stay tuned!😊
 
-⭐**Nov 26, 2024:** The source code for MESI is released!
+⭐**Nov 26, 2024:** The source code for OmniESI is released!
 
 # Overview
-Understanding and modeling enzyme-substrate interactions is crucial for designing enzymes with tailored functions, thereby advancing the field of enzyme engineering. The diversity of downstream tasks related to enzyme catalysis calls for a computational architecture that actively perceives enzyme-substrate interaction patterns to make unified predictions for multiple objectives. Here, we introduce MESI, a progressive conditional deep learning framework for multi-purpose enzyme-substrate interaction prediction. By decomposing the modeling of enzyme-substrate interactions into a two-stage process, MESI incorporates two conditional networks that respectively emphasize enzymatic reaction specificity and crucial catalytic interactions, facilitating a gradual shift in the feature latent space from the general domain to the catalysis-aware domain. Across various downstream tasks, MESI consistently outperforms state-of-the-art methods on top of a unified architecture. Furthermore, the proposed conditional networks implicitly capture the fundamental patterns of enzyme catalysis with negligible additional computational overhead, as evidenced by extensive ablation experiments. With the support of this conditional perception mechanism, MESI enables cost-effective and accurate identification of active sites without requiring any structural information, highlighting enzyme residues and substrate functional groups involved in diverse and critical catalytic interactions. Overall, MESI represents a unified prediction paradigm for downstream tasks related to enzyme catalysis, paving the way for deep-learning-based catalytic mechanism cracking and enzyme engineering with strong generalization and interpretability.
-Source code for MESI is released!
+Understanding and modeling enzyme-substrate interactions is crucial for designing enzymes with tailored functions, thereby advancing the field of enzyme engineering. The diversity of downstream tasks related to enzyme catalysis calls for a computational architecture that actively perceives enzyme-substrate interaction patterns to make unified predictions for multiple objectives. Here, we introduce OmniESI, a progressive conditional deep learning framework for multi-purpose enzyme-substrate interaction prediction. By decomposing the modeling of enzyme-substrate interactions into a two-stage process, OmniESI incorporates two conditional networks that respectively emphasize enzymatic reaction specificity and crucial catalytic interactions, facilitating a gradual shift in the feature latent space from the general domain to the catalysis-aware domain. Across various downstream tasks, OmniESI consistently outperforms state-of-the-art methods on top of a unified architecture. Furthermore, the proposed conditional networks implicitly capture the fundamental patterns of enzyme catalysis with negligible additional computational overhead, as evidenced by extensive ablation experiments. With the support of this conditional perception mechanism, OmniESI enables cost-effective and accurate identification of active sites without requiring any structural information, highlighting enzyme residues and substrate functional groups involved in diverse and critical catalytic interactions. Overall, OmniESI represents a unified prediction paradigm for downstream tasks related to enzyme catalysis, paving the way for deep-learning-based catalytic mechanism cracking and enzyme engineering with strong generalization and interpretability.
+Source code for OmniESI is released!
 ![overview](./figure/Fig1_overview.png)
 # Installation
-Create a new environment for MESI:
+Create a new environment for OmniESI:
 ```shell
-conda create -n MESI python=3.8
-conda activate MESI
+conda create -n OmniESI python=3.8
+conda activate OmniESI
 ```
 Installation for pytorch 1.12.1:
 ```shell
@@ -48,14 +48,14 @@ pip install -r requirements.txt
     - five-fold dataset/
         - [DATASET_NAME].csv
 
-- module/ # source code for the modules in MESI
+- module/ # source code for the modules in OmniESI
     - CN.py # conditional networks (BCFM & CCFM)
     - Encoder.py # encoders for substrate and enzyme
     - Transformer.py # transformer blocks
 
 - results/ # storation of model weights and training results
     - [DATASET_NAME]/
-        - MESI/ # released weights for MESI 
+        - OmniESI/ # released weights for OmniESI 
         - exp0/
         ...
         - expn/ # path to the training results once start a new training
@@ -75,7 +75,7 @@ pip install -r requirements.txt
 
 - main.py # script for training
 
-- models.py # main architecture of MESI
+- models.py # main architecture of OmniESI
 
 - test.py # script for testing
 ```
@@ -89,23 +89,23 @@ Download ESI datasets and model weights at: https://zenodo.org/records/14224548
 ## Prepare ESI datasets
 Make sure all the ESI datasets are stored under:
 ```shell
-/.../MESI/datasets/*
+/.../OmniESI/datasets/*
 ```
 
-## Prepare model weights of MESI
+## Prepare model weights of OmniESI
 We have released all the weights from the single-fold and five-fold experiments for the main ESI tasks. Make sure all the weights are stored under:
 ```shell
-/.../MESI/results/*
+/.../OmniESI/results/*
 ```
 
 ## Obtain ESM-2(650M) embeddings
-Generate embeddings for all ESI datasets. First specify the storage path for the ESM embeddings: [DATA_PATH]. The following script will save the embeddings to `[DATA_PATH]/dataset_name/esm/`. By default, this will retrieve the ESM features for all datasets in the MESI paper. We recommend running it on a GPU with at least 24GB memory
+Generate embeddings for all ESI datasets. First specify the storage path for the ESM embeddings: [DATA_PATH]. The following script will save the embeddings to `[DATA_PATH]/dataset_name/esm/`. By default, this will retrieve the ESM features for all datasets in the OmniESI paper. We recommend running it on a GPU with at least 24GB memory
 ```python
 cd ./data_process
 python embedding_1fold.py --feat_dir [DATA_PATH]
 python embedding_5fold.py --feat_dir [DATA_PATH]
 ```
-!!NOTE: We highly recommand employ the absolute path `/.../MESI/datasets_embeddings` for [DATA_PATH]. This will ensure the quick usage of subsequent code and the reproducibility of results.
+!!NOTE: We highly recommand employ the absolute path `/.../OmniESI/datasets_embeddings` for [DATA_PATH]. This will ensure the quick usage of subsequent code and the reproducibility of results.
 
 ## Obtain the partitioned datasets
 Run `partion_data.py` to obtain the five-fold datasets:
@@ -132,7 +132,7 @@ The final dataset is organized according to the following example:
 
 Once the ESM-2 embeddings and all model weights are prepared, you can quickly reproduce the main experimental results mentioned in the paper using the `reproduce.sh` script:
 ```shell
-cd /.../MESI
+cd /.../OmniESI
 chmod +x reproduce.sh
 ./reproduce.sh
 ```
@@ -140,7 +140,7 @@ On a single V100 GPU, it takes approximately one hour to obtain all the results.
 
 
 
-# MESI for regression tasks
+# OmniESI for regression tasks
 
 ## Execution templates
 For regression tasks such as kcat, Km, and kcat/Km, the basic execution templates for testing and training are as follows:
@@ -167,7 +167,7 @@ CUDA_VISIBLE_DEVICES=[0,1,2,3] python -m torch.distributed.launch --nproc_per_no
 ## Configuration choice
 Below are the configuration options involved in the regression tasks:
 ```python
-[MODEL]: MESI, CCFM, BCFM, Baseline
+[MODEL]: OmniESI, CCFM, BCFM, Baseline
 
 # For kcat prediction
 [DATA]: DLKcat_1, DLKcat_2, DLKcat_3, DLKcat_4, DLKcat_5 #5 fold experiments for DLKcat
@@ -184,7 +184,7 @@ Below are the configuration options involved in the regression tasks:
 ```
 
 
-# MESI for binary classification tasks
+# OmniESI for binary classification tasks
 ## Execution templates
 For binary classification tasks, such as enzyme-substrate pair prediction, epistasis prediction, and single mutation classification, the basic execution templates for training and testing are as follows:
 ```python
@@ -211,7 +211,7 @@ CUDA_VISIBLE_DEVICES=[0,1,2,3] python -m torch.distributed.launch --nproc_per_no
 ## Configuration choice
 Below are the configuration options involved in the binary classification tasks:
 ```python
-[MODEL]: MESI
+[MODEL]: OmniESI
 
 # For enzyme-substrate pair prediction
 [DATA]: esp 
@@ -227,26 +227,26 @@ Below are the configuration options involved in the binary classification tasks:
 # Visualization results reproduction
 
 ## PCA analysis
-We have stored the embeddings used for PCA visualization of the kcat/Km and single mutation classification tasks in `/.../MESI/visualization/PCA_analysis`. You can easily reproduce the results from our paper by running the following command:
+We have stored the embeddings used for PCA visualization of the kcat/Km and single mutation classification tasks in `/.../OmniESI/visualization/PCA_analysis`. You can easily reproduce the results from our paper by running the following command:
 ```python
-cd /.../MESI/visualization/PCA_analysis
+cd /.../OmniESI/visualization/PCA_analysis
 python plot_kcat_km.py
 python plot_mut.py
 ```
 The PCA visualization images will be stored in the `fig_pca` folder.
 
 ## Interpretability analysis
-We demonstrate MESI's sensitivity to the residues of enzyme and functional groups of substrate that are critical for catalysis, through statistical analysis and specific case study.
+We demonstrate OmniESI's sensitivity to the residues of enzyme and functional groups of substrate that are critical for catalysis, through statistical analysis and specific case study.
 
 ### Statistical analysis
 
 Run `att_statistic.py` to obtain the mean attention score of the residues in active site and other region of the enzyme in each enzyme-substrate complex:
 ```shell
-cd /.../MESI/visualization/Interpretability_analysis
+cd /.../OmniESI/visualization/Interpretability_analysis
 python att_statistic.py
 ```
 
-Run `att_ratio.py` to obtain the distribution of the ratio between the mean attention scores of active site region and other region residues, providing a clearer visualization of MESI's increased focus on the residues in active site region:
+Run `att_ratio.py` to obtain the distribution of the ratio between the mean attention scores of active site region and other region residues, providing a clearer visualization of OmniESI's increased focus on the residues in active site region:
 ```shell
 python att_ratio.py
 ```
@@ -257,7 +257,7 @@ You can also use `PyMOL` to visualize the residue attention score of enzyme in a
 python show_enzyme_att.py \
     --split [1-5] \
     --index [index_num] \
-    --model [Baseline, BCFM, CCFM, MESI] \
+    --model [Baseline, BCFM, CCFM, OmniESI] \
     --show_surface \ # (Optional) We recommend not using this argument to prevent occlusion.
 ```
 The script utilized to visualize the atom attention score of substrate is also available:
