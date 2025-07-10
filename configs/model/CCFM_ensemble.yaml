@@ -1,0 +1,35 @@
+SOLVER:
+  LR: 1e-4
+  SEED: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90] 
+  # Ensemble Test: Align with CatPred (https://www.nature.com/articles/s41467-025-57215-9)
+  
+DECODER:
+  IN_DIM: 128
+  HIDDEN_DIM: 256
+  OUT_DIM: 64
+  BINARY: 1
+
+PROTEIN:
+  NAME: "ESM_MLP_650M"
+  IN_DIM: 1280
+  HIDDEN_DIM: 640
+  TARGET_DIM: 128
+
+DRUG:
+  HIDDEN_LAYERS: [128, 128, 128]
+  NODE_IN_EMBEDDING: 128
+
+  
+STAGE:
+  NUM: 1
+  CCFM: True
+  BCFM: False
+
+CCFM:
+  DIM: 128
+
+BCFM:
+  DIM: 128
+  
+  
+  

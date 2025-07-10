@@ -1,0 +1,5 @@
+SOLVER:
+  BATCH_SIZE: 8
+  MAX_EPOCH: 30 # Align with CatPred (https://www.nature.com/articles/s41467-025-57215-9)
+  DATA: './datasets_embeddings/CatPred_km'
+  SAVE: 'CatPred_km'
