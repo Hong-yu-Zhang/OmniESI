@@ -1,4 +1,6 @@
 # OmniESI
+
+<a href='https://arxiv.org/abs/2506.17963'><img src='https://img.shields.io/badge/ArXiv-2412.18597-red'></a> 
 The official code repository of "OmniESI: A unified framework for enzyme-substrate interaction prediction with progressive conditional deep learning"
 
 # News
