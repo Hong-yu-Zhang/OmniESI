@@ -34,7 +34,8 @@ bash ./scripts/setup_env.sh
 
 # Data preparation
 Download ESI datasets and model weights at:
-https://drive.google.com/file/d/1fQa3rc9S51PRvtl4kcY-VgEZVZIvXjw3/view?usp=sharing
+
+[Download link](https://drive.google.com/file/d/1qKmu476De75LD1EsmCU-s8SM4Cj9LoQ4/view?usp=drive_link)
 
 
 ## Prepare ESI datasets
