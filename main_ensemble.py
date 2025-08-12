@@ -91,9 +91,6 @@ def main():
     df_val = pd.read_csv(val_path)
     df_test = pd.read_csv(test_path)
 
-    df_train = pd.concat([df_train, df_val], axis=0).reset_index(drop=True)
-    df_val = df_test
-
     train_dataset = ESIDataset(df_train.index.values, df_train, args.task)
     val_dataset = ESIDataset(df_val.index.values, df_val, args.task)
     test_dataset = ESIDataset(df_test.index.values, df_test, args.task)
