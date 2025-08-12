@@ -52,13 +52,6 @@ def main():
     dataFolder = cfg.SOLVER.DATA
 
     test_path = os.path.join(dataFolder, f"{args.split}.csv")
-    train_path = os.path.join(dataFolder, "train.csv")
-    val_path = os.path.join(dataFolder, "val.csv")
-
-    df_train = pd.read_csv(train_path)
-    df_val = pd.read_csv(val_path)
-    
-    df_train = pd.concat([df_train, df_val], axis=0).reset_index()
 
     df_test = pd.read_csv(test_path)
     test_dataset = ESIDataset(df_test.index.values, df_test, args.task)
