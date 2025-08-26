@@ -5,7 +5,7 @@
 The official code repository of "OmniESI: A unified framework for enzyme-substrate interaction prediction with progressive conditional deep learning"
 
 # News
-⭐**Jul 11, 2025:** Active site prediction coming in one week!
+⭐**Aug 26, 2025:** We have release the code, model weight and dataset for active site prediction! Check **OmniESI_site.zip** for more details.😊
 
 ⭐**Jul 10, 2025:** The source code for OmniESI is released!
 
